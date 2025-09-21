@@ -20,7 +20,7 @@ import 'regenerator-runtime/runtime';
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
-    console.log(id);
+    // console.log(id);
     if (!id) return;
     recipeView.renderSpinner();
 
@@ -48,7 +48,7 @@ const controlSearchResults = async function () {
     resultsView.renderSpinner();
     // 1) Get search query
     const query = searchView.getQuery();
-    console.log('query', query);
+    // console.log('query', query);
     if (!query) return;
 
     // 2) Load search results
@@ -65,7 +65,7 @@ const controlSearchResults = async function () {
 };
 
 const controlPagination = function (goToPage) {
-  console.log(goToPage);
+  // console.log(goToPage);
   // 1) Render new results
   resultsView.render(model.getSearchResultsPage(goToPage));
   // 2) Render initial pagination buttons
@@ -156,9 +156,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application');
-};
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   searchView.addHandlerSearch(controlSearchResults);
@@ -169,7 +166,6 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   // bookmarksView.addHandlerBookmarks(controlShowBookmark);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  newFeature();
 };
 
 init();
